@@ -2,21 +2,10 @@
 
 set -e
 
-#dnf -y install
-sudo su
-#apt -y purge python3-simplejson
-#apt -y autoremove
-
-
-
 useradd -s /bin/bash -d /opt/stack -m stack
 echo "stack ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/stack
 sudo -u stack -i
 
-
-
-
-#git clone https://opendev.org/openstack/devstack.git
 git clone https://opendev.org/openstack/devstack.git -b stable/xena
 
 sed -i -e 's/$cmd_pip $upgrade/$cmd_pip $upgrade --ignore-installed/g' ./devstack/inc/python 
